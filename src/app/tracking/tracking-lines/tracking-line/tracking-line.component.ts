@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Session } from 'inspector';
 import { Centers } from 'src/app/models/centers.model';
-import { Sessions } from 'src/app/models/sessions.model';
 import { SubjectsService } from 'src/app/services/subjects.service';
 
 @Component({
