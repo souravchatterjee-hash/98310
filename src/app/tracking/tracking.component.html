@@ -1,0 +1,17 @@
+<div [formGroup]="trackingFormGroup">
+    <div class="row">
+        <label><h3>Select your preferences</h3></label>
+    </div>
+    <div class="row">
+        <app-tracking-header formControlName="preferences"></app-tracking-header>
+    </div>
+    <div class="row">
+        <app-buttons></app-buttons>
+    </div>
+    <div class="row extra-space">
+        <label><h3>{{freeText}}</h3></label>
+    </div>
+    <div class="row">
+        <app-tracking-lines *ngIf="centers" [centerDetails]="centers" [minAge]="ageControl"></app-tracking-lines>
+    </div>    
+</div>

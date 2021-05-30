@@ -1,0 +1,27 @@
+.table-sm {
+    width: 100%;
+}
+
+.table-sm > .table-head {
+    background-color: grey;
+    color: white;
+}
+
+.table-sm > .table-head > .column-name {
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.table-body > .table-row {
+    cursor: pointer;
+}
+
+.table-body > tr:nth-child(old) {
+        background-color: white;
+}
+
+.table-body > tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+

@@ -1,0 +1,75 @@
+<div class="container space"  [formGroup] = "preferencesFormGroup">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="required">Select State</label>
+                <select class="form-control" formControlName="stateControl" (change)="selectedState($event.target.value)">
+                    <option *ngFor ="let state of stateMap | keyvalue" [value]="state.key">{{state.value}}</option>
+                </select>
+            </div>
+            <div class="form-group" *ngIf="enableDistrict">
+                <label class="required">Select District</label>
+                <select class="form-control" formControlName="districtControl" >
+                    <option *ngFor ="let district of districtMap | keyvalue" [value]="district.key">{{district.value}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="required">Age limit:</label>
+                <select class="form-control" formControlName="ageControl" name="ageID" id="ageID">
+                    <option value="18" selected>18</option>
+                    <option value="45">45</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="required">Data refresh frequency:</label>
+                <select class="form-control" formControlName="refreshFrequencyControl" name="refreshID" id="refreshID">
+                    <option value="1" selected>1 Minute</option>
+                    <option value="5">5 Minutes</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- <div class="container" [formGroup] = "preferencesFormGroup">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group"><label>Select State</label></div>
+            <div>
+                <select placeholder="stateDropdown" formControlName="stateControl" (change)="selectedState($event.target.value)">
+                    <option *ngFor ="let state of stateMap | keyvalue" [value]="state.key">{{state.value}}</option>
+                </select>
+            </div>
+            <div><label>Select District</label></div>
+            <div>
+                <select placeholder="districtDropdown" formControlName="districtControl" (change)="selectedDistrict($event.target.value)">
+                    <option *ngFor ="let district of districtMap | keyvalue" [value]="district.key">{{district.value}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-control">
+                <div>Age limit:</div>
+                <div>
+                    <select class="dropdown" formControlName="ageControl" name="ageID" id="ageID">
+                        <option value="18" selected>18</option>
+                        <option value="45">45</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">Data refresh frequency:</div>
+                <div class="col-2">
+                    <select class="dropdown" formControlName="refreshFrequencyControl" name="ageID" id="ageID">
+                        <option value="1" selected>1 Minute</option>
+                        <option value="5">5 Minutes</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div> -->

@@ -1,0 +1,18 @@
+<div>
+    <div class="table-responsive">
+        <table class="table-sm table-striped">
+            <thead class="table-head">
+                <tr>
+                    <th class="table-head-row">
+                        <app-tracking-line-header class="container table-row-min-width"></app-tracking-line-header>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <tr class="table-row" *ngFor="let centerData of centerDetails.centers">
+                    <app-tracking-line  class="container table-row-min-width" [centerDetails]="centerData" [selectedMinAge]="minAge"></app-tracking-line>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.placement {
+    align-items: center;
+}
+
+span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.row {
+    color: red;
+}
