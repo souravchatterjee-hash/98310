@@ -91,10 +91,10 @@ export class TrackingHeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  selectedState(selectedState: number) {
-    if (selectedState) {
+  selectedState(event: any) {    
+    if (event.target.value) {
       this.enableDistrict = true;
-      this.cowinService.getDistricts(selectedState).then((value) => {
+      this.cowinService.getDistricts(event.target.value).then((value) => {
         value.districts.forEach((element: District) => {
           this.districtMap.set(element.district_id, element.district_name);
         });

@@ -10,7 +10,7 @@ import { CowinApiService } from 'src/app/services/cowin-api.service';
 })
 export class TrackingLinesComponent implements OnInit {
 
-  @Input() public centerDetails!: Centers;
+  @Input() public centerDetails: any;
   @Input() public minAge!: number;
   
   constructor() { }

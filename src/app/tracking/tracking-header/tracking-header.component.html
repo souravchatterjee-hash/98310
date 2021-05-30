@@ -3,14 +3,14 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label class="required">Select State</label>
-                <select class="form-control" formControlName="stateControl" (change)="selectedState($event.target.value)">
-                    <option *ngFor ="let state of stateMap | keyvalue" [value]="state.key">{{state.value}}</option>
+                <select class="form-control" formControlName="stateControl" (change)="selectedState($event)">
+                    <option *ngFor ="let state of stateMap | keyvalue" [value]="state.key">{{state?.value}}</option>
                 </select>
             </div>
             <div class="form-group" *ngIf="enableDistrict">
                 <label class="required">Select District</label>
                 <select class="form-control" formControlName="districtControl" >
-                    <option *ngFor ="let district of districtMap | keyvalue" [value]="district.key">{{district.value}}</option>
+                    <option *ngFor ="let district of districtMap | keyvalue" [value]="district.key">{{district?.value}}</option>
                 </select>
             </div>
         </div>

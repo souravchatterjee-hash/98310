@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody class="table-body">
-                <tr class="table-row" *ngFor="let centerData of centerDetails.centers">
+                <tr class="table-row" *ngFor="let centerData of centerDetails?.centers">
                     <app-tracking-line  class="container table-row-min-width" [centerDetails]="centerData" [selectedMinAge]="minAge"></app-tracking-line>
                 </tr>
             </tbody>
