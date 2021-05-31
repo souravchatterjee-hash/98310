@@ -16,7 +16,7 @@
                     <option *ngFor ="let district of districtMap | keyvalue" [value]="district.key">{{district?.value}}</option>
                 </select>
             </div>
-            <span class="help-block errors" *ngIf="!districtControl?.valid && districtControl?.touched">
+            <span class="help-block errors" *ngIf="!districtControl?.valid && stateControl?.touched">
                 Please select District
             </span>
         </div>
@@ -35,7 +35,7 @@
                     <option value="5">5 Minutes</option>
                 </select>
             </div>
-            <span class="help-block errors" *ngIf="!refreshFrequencyControl?.valid && refreshFrequencyControl?.touched">
+            <span class="help-block errors" *ngIf="!refreshFrequencyControl?.valid && stateControl?.touched">
                 Please select Refresh Frequency
             </span>
         </div>

@@ -1,17 +1,17 @@
 <div class="container placement">
     <div class="d-flex align-items-center justify-content-center">
         <div class="col-2">
-            <button [disabled]="disableStartButton" type="button" class="btn btn-primary" (click)="onClick('START_TRACKING')">
+            <button [disabled]="disableStartButton" [ngClass]="disableStartButton ? 'disabled' : ''" type="button" class="btn btn-primary" (click)="onClick('START_TRACKING')">
                 <label>Start Tracking</label>
             </button>
         </div>
         <div class="col-2">
-            <button [disabled]="disableStopButton" type="button" class="btn btn-danger" (click)="onClick('STOP_TRACKING')">
+            <button [disabled]="disableStopButton" [ngClass]="disableStopButton ? 'disabled' : ''" type="button" class="btn btn-danger" (click)="onClick('STOP_TRACKING')">
                 <label>Stop Tracking</label>
             </button>
         </div>
         <div class="col-2">
-            <button *ngIf="showURL" type="button" class="btn btn-secondary" (click)="stopAudio()">
+            <button *ngIf="showURL" type="button" class="btn btn-secondary" (click)="commonService.stopAudio()">
                 <label>Stop Audio</label>
             </button>
         </div>

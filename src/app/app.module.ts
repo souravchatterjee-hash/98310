@@ -13,6 +13,7 @@ import { TrackingLineHeaderComponent } from './tracking/tracking-lines/tracking-
 import { TrackingLineComponent } from './tracking/tracking-lines/tracking-line/tracking-line.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DatePipe } from '@angular/common';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     DatePipe

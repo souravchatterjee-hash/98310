@@ -10,3 +10,8 @@ span:hover {
 .row {
     color: red;
 }
+
+.disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}

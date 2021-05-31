@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Centers } from 'src/app/models/centers.model';
 import { Sessions } from 'src/app/models/sessions.model';
-import { SubjectsService } from 'src/app/services/subjects.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-tracking-line',
@@ -12,21 +12,18 @@ export class TrackingLineComponent implements OnInit {
 
   @Input() centerDetails: any;
   @Input() selectedMinAge! : number;
+  
+  public mark! : boolean;
 
-  public mark = false;
-  private showUrl = false;
-
-  constructor(private subjectService: SubjectsService) { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
 
     this.centerDetails?.sessions.forEach((e: Sessions) => {
-      if(e.available_capacity > 0 || 
-        e.available_capacity_dose1 > 0 || 
-        e.available_capacity_dose2 > 0) {
-          this.mark = true;
-          this.showUrl = true;
-          this.subjectService.showCowinURL.next(this.showUrl);
+      if(e.available_capacity > 0 && 
+        (e.available_capacity_dose1 > 0 || 
+        e.available_capacity_dose2 > 0)) {
+          this.mark = true;          
       }
     });  
 

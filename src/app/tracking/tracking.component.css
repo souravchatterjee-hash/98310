@@ -3,6 +3,10 @@
     margin-bottom: 3%;
 }
 
+.extra-space-1 {
+    margin-bottom: 3%;
+}
+
 .blink_me {
     animation: blinker 1s linear infinite;
 }

@@ -9,10 +9,11 @@
                 </tr>
             </thead>
             <tbody class="table-body">
-                <tr class="table-row" *ngFor="let centerData of centerDetails?.centers">
-                    <app-tracking-line  class="container table-row-min-width" [centerDetails]="centerData" [selectedMinAge]="minAge"></app-tracking-line>
+                <tr class="table-row" *ngFor="let centerData of centerDetails?.centers | paginate:{itemsPerPage: 10, currentPage:p}">
+                    <app-tracking-line  class="container table-row-min-width" [centerDetails]="centerData"></app-tracking-line>
                 </tr>
             </tbody>
         </table>
+        <pagination-controls class="alignment" (pageChange)="p=$event"></pagination-controls>
     </div>
 </div>

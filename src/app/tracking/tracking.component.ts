@@ -5,7 +5,7 @@ import { Centers } from '../models/centers.model';
 import { ConstantsService } from '../services/constants.service';
 import { CowinApiService } from '../services/cowin-api.service';
 import { PollingService } from '../services/polling.service';
-import { SubjectsService } from '../services/subjects.service';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-tracking',
@@ -20,7 +20,7 @@ export class TrackingComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private subjectService: SubjectsService,
+  constructor(private subjectService: CommonService,
     private constantService: ConstantsService,
     private formBuilder: FormBuilder,
     private pollingService: PollingService) {
@@ -32,12 +32,12 @@ export class TrackingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.subjectService.buttonDetails.subscribe((buttonDetails: string) => {
       if (buttonDetails === this.constantService.START_TRACKING) {
-        if(this.trackingFormGroup.touched) {          
+        if(this.trackingFormGroup.touched && this.trackingFormGroup.valid) {          
           this.subjectService.disableStartTrackingButton.next(true);
           this.subjectService.disableStopTrackingButton.next(false);
           this.pollingService.districtId = this.districtControl;
           this.pollingService.timeInterval = this.refreshFrequencyControl;
-          if(this.districtControl) {
+          if(this.districtControl && this.refreshFrequencyControl) {
             this.pollingService.getRfreshedData().subscribe((centerDetails) => {
               this.centers = centerDetails;
               if (this.centers) {
