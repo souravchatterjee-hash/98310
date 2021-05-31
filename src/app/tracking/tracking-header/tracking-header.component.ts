@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { District } from 'src/app/models/district.model';
 import { State } from 'src/app/models/state.model';
@@ -84,6 +84,10 @@ export class TrackingHeaderComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+
+    this.stateControl?.setValidators(Validators.required);
+    this.districtControl?.setValidators(Validators.required);
+
     this.cowinService.getStates().then(value => {
       value.states.forEach((element: State) => {
         this.stateMap.set(element.state_id, element.state_name);
@@ -104,5 +108,17 @@ export class TrackingHeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
+  }
+
+  get stateControl() {
+    return this.preferencesFormGroup.get('stateControl');
+  }
+
+  get districtControl() {
+    return this.preferencesFormGroup.get('districtControl');
+  }
+
+  get refreshFrequencyControl() {
+    return this.preferencesFormGroup.get('refreshFrequencyControl');
   }
 }

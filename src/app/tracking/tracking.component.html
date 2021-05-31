@@ -6,6 +6,9 @@
         <app-tracking-header formControlName="preferences"></app-tracking-header>
     </div>
     <div class="row">
+        <span class="blink_me" *ngIf="!this.trackingFormGroup.touched"><h5>Please select your preferences to start track</h5></span>
+    </div>
+    <div class="row">
         <app-buttons></app-buttons>
     </div>
     <div class="row extra-space">

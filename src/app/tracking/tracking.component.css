@@ -2,3 +2,13 @@
     margin-top: 3%;
     margin-bottom: 3%;
 }
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}

@@ -32,18 +32,22 @@ export class TrackingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.subjectService.buttonDetails.subscribe((buttonDetails: string) => {
       if (buttonDetails === this.constantService.START_TRACKING) {
-        this.subjectService.disableStartTrackingButton.next(true);
-        this.subjectService.disableStopTrackingButton.next(false);
-        this.pollingService.districtId = this.districtControl;
-        this.pollingService.timeInterval = this.refreshFrequencyControl;
-        this.pollingService.getRfreshedData().subscribe((centerDetails) => {
-          this.centers = centerDetails;
-          if (this.centers) {
-            this.freeText = 'Details Found';
-          } else {
-            this.freeText = 'No Details Found!';
+        if(this.trackingFormGroup.touched) {          
+          this.subjectService.disableStartTrackingButton.next(true);
+          this.subjectService.disableStopTrackingButton.next(false);
+          this.pollingService.districtId = this.districtControl;
+          this.pollingService.timeInterval = this.refreshFrequencyControl;
+          if(this.districtControl) {
+            this.pollingService.getRfreshedData().subscribe((centerDetails) => {
+              this.centers = centerDetails;
+              if (this.centers) {
+                this.freeText = 'Details Found';
+              } else {
+                this.freeText = 'No Details Found!';
+              }
+            });
           }
-        });
+        }
       }
     }));
   }
@@ -53,19 +57,19 @@ export class TrackingComponent implements OnInit, OnDestroy {
   }
 
   get stateControl() {
-    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value.stateControl;
+    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value?.stateControl;
   }
 
   get districtControl() {
-    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value.districtControl;
+    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value?.districtControl;
   }
 
   get ageControl() {
-    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value.ageControl;
+    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value?.ageControl;
   }
 
   get refreshFrequencyControl() {
-    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value.refreshFrequencyControl;
+    return this.trackingFormGroup?.get(this.constantService.PREFERENCES_FORM_CONTROL)?.value?.refreshFrequencyControl;
   }
 
   ngOnDestroy() {

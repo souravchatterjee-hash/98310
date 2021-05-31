@@ -2,7 +2,11 @@
     margin-bottom: 5%;
 }
 
-.required .control-label:after { 
+.form-group.required > .control-label:after {
     content:"*";
     color:red;
+}
+
+.errors {
+    color: coral;
 }
