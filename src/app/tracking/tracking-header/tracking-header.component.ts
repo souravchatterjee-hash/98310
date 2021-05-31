@@ -87,6 +87,7 @@ export class TrackingHeaderComponent implements OnInit, OnDestroy {
 
     this.stateControl?.setValidators(Validators.required);
     this.districtControl?.setValidators(Validators.required);
+    this.refreshFrequencyControl?.setValidators(Validators.required);
 
     this.cowinService.getStates().then(value => {
       value.states.forEach((element: State) => {
