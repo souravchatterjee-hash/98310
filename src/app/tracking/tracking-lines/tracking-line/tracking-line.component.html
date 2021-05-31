@@ -10,8 +10,8 @@
             <label [innerHTML]="session?.vaccine"></label>
         </div>
     </div>
-    <div class="col-1" *ngIf="centerDetails?.vaccineFee; else feeType">
-        <div *ngFor="let vaccineFee of centerDetails?.vaccineFee">
+    <div class="col-1" *ngIf="centerDetails?.vaccine_fees; else feeType">
+        <div *ngFor="let vaccineFee of centerDetails?.vaccine_fees">
             <label [innerHTML]="vaccineFee?.fee"></label>
         </div>
     </div>

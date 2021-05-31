@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Centers } from 'src/app/models/centers.model';
+import { Sessions } from 'src/app/models/sessions.model';
 import { SubjectsService } from 'src/app/services/subjects.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { SubjectsService } from 'src/app/services/subjects.service';
 })
 export class TrackingLineComponent implements OnInit {
 
-  @Input() centerDetails!: Centers;
+  @Input() centerDetails: any;
   @Input() selectedMinAge! : number;
 
   public mark = false;
@@ -19,7 +20,7 @@ export class TrackingLineComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.centerDetails.sessions.forEach(e => {
+    this.centerDetails?.sessions.forEach((e: Sessions) => {
       if(e.available_capacity > 0 || 
         e.available_capacity_dose1 > 0 || 
         e.available_capacity_dose2 > 0) {
